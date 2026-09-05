@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
@@ -24,7 +24,7 @@
             width: 100%;
         }
         .header {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
         }
         .header h1 {
@@ -47,11 +47,19 @@
             font-weight: 300;
             line-height: 1.4;
         }
+        .header .sub3 {
+            font-size: 0.9rem;
+            color: #7a9f7e;
+            font-weight: 300;
+            margin-top: 0.2rem;
+        }
+
+        /* 分类滚动条 - 三级 */
         .chapter-scroll {
             overflow-x: auto;
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
-            padding: 0.2rem 0 0.8rem 0;
+            padding: 0.2rem 0 0.4rem 0;
             scrollbar-width: none;
         }
         .chapter-scroll::-webkit-scrollbar { display: none; }
@@ -79,11 +87,13 @@
             color: #1b4125;
             font-weight: 500;
         }
+
+        /* 二级分类（大主题） */
         .subchapter-scroll {
             overflow-x: auto;
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
-            padding: 0 0 0.9rem 0;
+            padding: 0 0 0.4rem 0;
             scrollbar-width: none;
         }
         .subchapter-scroll::-webkit-scrollbar { display: none; }
@@ -110,18 +120,53 @@
             color: #1e4529;
             font-weight: 460;
         }
+
+        /* 三级分类（小单元） */
+        .unit-scroll {
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 0 0.8rem 0;
+            scrollbar-width: none;
+        }
+        .unit-scroll::-webkit-scrollbar { display: none; }
+        .unit-flex {
+            display: inline-flex;
+            gap: 0.5rem;
+            padding: 0 0.2rem;
+        }
+        .unit-btn {
+            background: #f5fcf0;
+            border: 1px solid #dae8cf;
+            border-radius: 20px;
+            padding: 0.3rem 1.1rem;
+            font-size: 0.85rem;
+            font-weight: 380;
+            color: #3d734a;
+            white-space: nowrap;
+            box-shadow: 0 1px 3px rgba(120,150,100,0.06);
+            cursor: pointer;
+        }
+        .unit-btn.active-unit {
+            background: #d0e8c2;
+            border-color: #9ec092;
+            color: #1a4024;
+            font-weight: 460;
+        }
         .word-count-badge {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             background: #c3ddb6;
             border-radius: 20px;
-            padding: 0.15rem 0.6rem;
-            margin-left: 0.5rem;
+            padding: 0.1rem 0.5rem;
+            margin-left: 0.4rem;
             color: #23522e;
         }
+
+        /* 主卡片 */
         .flip-container {
             perspective: 1000px;
             width: 100%;
-            margin: 1.2rem 0 1.5rem 0;
+            margin: 0.8rem 0 1.2rem 0;
         }
         .flipper {
             position: relative;
@@ -149,12 +194,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 240px;
+            min-height: 220px;
         }
         .back {
             position: absolute;
             transform: rotateY(180deg);
-            min-height: 240px;
+            min-height: 220px;
         }
         .en-word {
             font-size: 2.8rem;
@@ -180,20 +225,21 @@
             text-align: center;
             width: 100%;
         }
+
         .nav-row {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
-            margin: 1.5rem 0 2rem 0;
+            gap: 0.8rem;
+            margin: 1.2rem 0 1.8rem 0;
             flex-wrap: wrap;
         }
         .nav-btn {
             background: #f1fde9;
             border: 1px solid #cde0c3;
             border-radius: 60px;
-            padding: 0.7rem 1.8rem;
-            font-size: 1.2rem;
+            padding: 0.6rem 1.5rem;
+            font-size: 1.1rem;
             color: #295e36;
             box-shadow: 0 2px 6px rgba(0,0,0,0.02);
             cursor: pointer;
@@ -203,29 +249,43 @@
             border-color: #aacaa0;
             font-weight: 440;
         }
+
         .thumb-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin: 1rem 0 0.8rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
         .thumb-header span {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #3d6d4b;
             font-weight: 330;
         }
-        .export-btn {
+        .thumb-header .actions {
+            display: flex;
+            gap: 0.4rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .thumb-header .actions button {
             background: #dbeace;
             border: 1px solid #adc9a2;
             border-radius: 40px;
-            padding: 0.4rem 1.3rem;
-            font-size: 1rem;
+            padding: 0.3rem 1.1rem;
+            font-size: 0.9rem;
             color: #23562f;
             cursor: pointer;
             white-space: nowrap;
         }
+        .thumb-header .actions button.select-all-btn {
+            background: #c8e0b9;
+            border-color: #9abb90;
+        }
+
         .thumb-grid-container {
-            max-height: 300px;
+            max-height: 280px;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             border-radius: 20px;
@@ -239,14 +299,14 @@
         .thumb-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 0.6rem;
+            gap: 0.5rem;
             padding: 0.2rem;
         }
         .thumb-item {
             background: #f9fff3;
             border: 1px solid #dbefd0;
             border-radius: 24px;
-            padding: 0.7rem 0.3rem 0.7rem 0.6rem;
+            padding: 0.6rem 0.2rem 0.6rem 0.5rem;
             display: flex;
             align-items: center;
             gap: 0.2rem;
@@ -254,14 +314,14 @@
             min-width: 0;
         }
         .thumb-item input[type="checkbox"] {
-            width: 1.2rem;
-            height: 1.2rem;
+            width: 1.1rem;
+            height: 1.1rem;
             accent-color: #86b07c;
             border-radius: 4px;
             flex-shrink: 0;
         }
         .thumb-item label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #2e623d;
             font-weight: 420;
             white-space: nowrap;
@@ -270,6 +330,15 @@
             flex: 1;
             cursor: pointer;
         }
+
+        .tip {
+            color: #799e7a;
+            font-size: 0.9rem;
+            margin-top: 0.8rem;
+            text-align: center;
+        }
+
+        /* Quiz 弹窗 */
         .quiz-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -293,40 +362,50 @@
             width: 100%;
             max-width: 450px;
             border-radius: 48px;
-            padding: 2.2rem 1.5rem;
+            padding: 2rem 1.5rem;
             border: 1px solid #daefce;
             box-shadow: 0 20px 30px rgba(90, 120, 70, 0.2);
         }
         .quiz-panel h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 320;
             color: #2f6040;
             text-align: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
         .close-area { display: flex; justify-content: flex-end; }
         .close-quiz {
-            font-size: 2.8rem; line-height: 0.8; color: #6d9b71;
+            font-size: 2.6rem; line-height: 0.8; color: #6d9b71;
             background: none; border: none; padding: 0 0.5rem; cursor: pointer;
         }
         .quiz-card {
             background: white;
             border-radius: 42px;
-            padding: 2.5rem 1rem;
-            margin: 1.5rem 0;
+            padding: 2rem 1rem;
+            margin: 1.2rem 0;
             border: 1px solid #d1e6c5;
             text-align: center;
         }
         .quiz-card .big-en {
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: #1e4d2b;
             font-weight: 340;
             word-break: break-word;
         }
         .quiz-footer { display: flex; justify-content: center; gap: 2rem; margin: 1rem 0; }
-        .quiz-footer .nav-btn { font-size: 1.4rem; padding: 0.5rem 2rem; }
-        .quiz-counter { text-align: center; color: #517d58; font-size: 1.1rem; }
-        .tip { color: #799e7a; font-size: 0.95rem; margin-top: 1rem; text-align: center; }
+        .quiz-footer .nav-btn { font-size: 1.3rem; padding: 0.4rem 1.8rem; }
+        .quiz-counter { text-align: center; color: #517d58; font-size: 1rem; }
+
+        @media (max-width: 480px) {
+            .thumb-grid { grid-template-columns: repeat(3, 1fr); }
+            .en-word { font-size: 2.2rem; }
+            .ch-word { font-size: 1.6rem; }
+            .front, .back { padding: 1.8rem 1rem; min-height: 180px; }
+            .header h1 { font-size: 1.6rem; }
+            .chap-btn { font-size: 1rem; padding: 0.4rem 1.2rem; }
+            .sub-btn { font-size: 0.85rem; padding: 0.3rem 1rem; }
+            .unit-btn { font-size: 0.75rem; padding: 0.2rem 0.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -335,12 +414,17 @@
         <h1>Reborner 雅思听力核心词汇</h1>
         <div class="sub1">Part 2 专项 · 全量版</div>
         <div class="sub2">天天进步，每日新生</div>
+        <div class="sub3">📂 3 大主题 · 6 个单元 · 共 <span id="totalWordCount">0</span> 个词汇</div>
     </div>
 
-    <!-- 主分类：Part 2 (只有一个) -->
+    <!-- 第一级：Part 2 (固定) -->
     <div class="chapter-scroll" id="mainCategoryScroll"><div class="chap-flex" id="mainCategoryFlex"></div></div>
-    <!-- 二级分类：就业与工作 / 公共设施与服务 / 文体活动 -->
+
+    <!-- 第二级：3 大主题 -->
     <div class="subchapter-scroll" id="subCategoryScroll"><div class="sub-flex" id="subCategoryFlex"></div></div>
+
+    <!-- 第三级：6 个小单元 -->
+    <div class="unit-scroll" id="unitScroll"><div class="unit-flex" id="unitFlex"></div></div>
 
     <!-- 主卡片 -->
     <div class="flip-container" id="flipContainer">
@@ -362,11 +446,15 @@
     </div>
 
     <div class="thumb-header">
-        <span>📌 本章全部单词 · 勾选难词</span>
-        <button class="export-btn" id="exportDifficultBtn">📎 导出我的难词</button>
+        <span>📌 当前单元词汇 · 勾选难词</span>
+        <div class="actions">
+            <button class="select-all-btn" id="selectAllBtn">✅ 全选</button>
+            <button class="select-all-btn" id="deselectAllBtn">⬜ 取消</button>
+            <button class="export-btn" id="exportDifficultBtn">📎 导出难词</button>
+        </div>
     </div>
     <div class="thumb-grid-container"><div class="thumb-grid" id="thumbGrid"></div></div>
-    <div class="tip">✓ 点击卡片翻转 · 勾选方格标记难词</div>
+    <div class="tip">✓ 点击卡片翻转 · 勾选方格标记难词 · 三级分类层层筛选</div>
 </div>
 
 <!-- quiz 弹窗 -->
@@ -384,522 +472,482 @@
 </div>
 
 <script>
-(function() {
-    // ==================== 雅思听力核心词汇 · Part 2 完整版 ====================
-    // 严格按照文档 SECTION 2 全部词汇录入：就业与工作，公共设施与服务，文体活动
-    const vocabData = [
-        // 1. 就业与工作
-        { en: "work", ch: "工作", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "working", ch: "工作", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "workforce", ch: "劳动力", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "workplace", ch: "车间", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "workshop", ch: "工作室", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "workload", ch: "工作量", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "worksheet", ch: "工作表", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "practical work", ch: "实践工作", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "worker", ch: "工人", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "former worker", ch: "离职员工；前任员工", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "labor", ch: "劳动力", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "staff", ch: "员工", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "comer", ch: "来者", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "employee", ch: "雇员", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "employer", ch: "雇主", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "unemployed", ch: "失业的", pos: "adj.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "job", ch: "工作", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "full time", ch: "全职", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "part time", ch: "兼职", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "interview", ch: "面试", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "interview question", ch: "面试问题", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "phone interview", ch: "电话面试", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "job interview", ch: "求职面试", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "interview skills", ch: "面试技巧", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "job application", ch: "求职申请", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "issue", ch: "发布", pos: "v.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "invitation", ch: "邀请", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "placement", ch: "安排", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "placement test", ch: "定职测验", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "hire", ch: "雇佣；租用", pos: "v.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "recruit", ch: "招募；新成员", pos: "v./n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "retired", ch: "退休的", pos: "adj.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "dismiss", ch: "解散", pos: "v.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "reward", ch: "报酬；奖励", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "earn", ch: "收入", pos: "v.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "salary", ch: "工资", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "wages", ch: "工资", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "income", ch: "收入", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "low income", ch: "低收入", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "bonus", ch: "奖金", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "welfare", ch: "福利", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "allowance", ch: "补贴", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "compensation", ch: "补偿", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "sick pay", ch: "病假津贴", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "office", ch: "办公室", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "career office", ch: "(大学)就业指导办公室", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "large office", ch: "大办公室", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "future career", ch: "前程", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "future", ch: "未来", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "training", ch: "培训", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "retrain", ch: "再培训", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "further training", ch: "进修", pos: "phr.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "further", ch: "更远的", pos: "adj.", mainCategory: "Part 2", subCategory: "就业与工作" },
-        { en: "promotion", ch: "促进；提升", pos: "n.", mainCategory: "Part 2", subCategory: "就业与工作" },
-
-        // 2. 公共设施与服务 (包含城市与城市服务，公共事务与服务)
-        { en: "city", ch: "城市", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "city centre", ch: "市中心", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "urban", ch: "城市", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "urban area", ch: "城区", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "regional", ch: "区域性的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "area", ch: "地区；区域", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "smaller area", ch: "更小的地方", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "district", ch: "地区", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "territory", ch: "领土", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "population", ch: "人口", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "resident", ch: "居民", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "citizen", ch: "市民", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "crowded", ch: "拥挤的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "large", ch: "大的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "large scale", ch: "大规模的", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "centre", ch: "中心", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "central", ch: "中心的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "central location", ch: "核心区", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "town", ch: "镇", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "town hall", ch: "市政厅", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "landmark", ch: "地标", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "public", ch: "公众的；公开的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "public square", ch: "公共广场", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "public area", ch: "公共区域", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "common", ch: "常见的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "common room", ch: "公共休息室", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "builder", ch: "建造师；创建者", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "building", ch: "建筑物", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "planner", ch: "规划师", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "construction", ch: "建造；构造", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "castle", ch: "城堡", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "churches", ch: "教堂", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "palace", ch: "宫殿", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "tower", ch: "塔；塔楼", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "hall", ch: "大厅", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "block", ch: "街区", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "square", ch: "广场", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "infrastructure", ch: "基础设施", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "utility", ch: "公共事业", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "road", ch: "道路", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "road map", ch: "路线图", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "smooth road", ch: "平稳的道路", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "smooth", ch: "平坦的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "street", ch: "街道", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "bridges", ch: "桥", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "tunnel", ch: "隧道", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "dam", ch: "水坝", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "harbour", ch: "港口", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "port", ch: "港口", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "native", ch: "本地的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "nonnative", ch: "引进的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "none", ch: "没有", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "community", ch: "社区", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "local", ch: "当地的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "local community", ch: "地方社区", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "location", ch: "位置", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "position", ch: "位置", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "garden", ch: "花园", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "garden tool", ch: "园林工具", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "gardening", ch: "园艺", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "park", ch: "公园", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "government", ch: "政府", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "government election", ch: "政府选举", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "government policy", ch: "政府政策", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "government agencies", ch: "政府机构", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "authority", ch: "权威，权力", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "supervision", ch: "监管", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "ban", ch: "禁令，禁止", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "permit", ch: "许可", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "permission", ch: "许可", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "tax", ch: "税", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "immigrant", ch: "移民", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "immigration", ch: "移居", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "policy", ch: "政策", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "politics", ch: "政治，政治事务", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "politician", ch: "政治家", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "vote right", ch: "投票权", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "democratic", ch: "民主的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "president", ch: "总统", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "army", ch: "军队", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "soldier", ch: "战士", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "ranger", ch: "游击", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "weapon", ch: "武器", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "shoot", ch: "射击", pos: "v.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "gun", ch: "枪", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "alarm", ch: "警报", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "alarming system", ch: "警报系统", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "personal alarm", ch: "个人警报器", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "police", ch: "警察", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "police helicopter", ch: "警用直升机", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "crime", ch: "犯罪", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "prison", ch: "监狱", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "prisoner", ch: "囚犯", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "safe", ch: "安全的", pos: "adj.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "safety", ch: "安全", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "safeguard", ch: "保护", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "safety regulation", ch: "安全法规", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "safety check", ch: "安全检查", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "security", ch: "安全；保证", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "security officer", ch: "保安", pos: "phr.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-        { en: "guard", ch: "警卫", pos: "n.", mainCategory: "Part 2", subCategory: "公共设施与服务" },
-
-        // 3. 文体活动 (包含电影音乐表演，绘画摄影文学，体育运动)
-        { en: "film", ch: "电影", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "filmed", ch: "拍摄", pos: "v.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "microfilm", ch: "微电影", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "comedy", ch: "喜剧", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "cartoon", ch: "动画片", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "comics", ch: "连环画", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "joke", ch: "笑话", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "humor", ch: "幽默", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "director", ch: "导演", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "actor", ch: "演员", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "movie", ch: "电影", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "theater", ch: "电影院", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "cinema", ch: "电影院", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "audience", ch: "观众；听众", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "music", ch: "音乐", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "write music", ch: "写歌", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "music festival", ch: "音乐节", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "music concert", ch: "演唱会", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "music video", ch: "音乐录影带", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "live music", ch: "现场音乐", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "background music", ch: "背景音乐", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "band", ch: "乐队", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "opera", ch: "歌剧", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "concert", ch: "音乐会", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "concert room", ch: "音乐厅", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "concert hall", ch: "音乐厅", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "singer", ch: "歌手", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "singing", ch: "唱歌", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "song", ch: "歌曲", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "jazz", ch: "爵士乐", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "composer", ch: "作曲家", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "composing", ch: "作曲", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "tape", ch: "磁带", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "recorder", ch: "录音机", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "tape recorder", ch: "录音机", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "recording", ch: "录音；唱片", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "record", ch: "记录；档案", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "receiver", ch: "接收者；收音机", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "instrument", ch: "乐器；工具", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "drum", ch: "鼓", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "guitar", ch: "吉他", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "trumpet", ch: "喇叭；小号", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "piano", ch: "钢琴", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "flute", ch: "长笛", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "violin", ch: "小提琴", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "dance", ch: "舞蹈", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "dancing", ch: "跳舞", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "dance class", ch: "舞蹈班", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "dance show", ch: "舞蹈表演", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "drama", ch: "戏剧", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "arts", ch: "文科；艺术", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "art gallery", ch: "画廊", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "artists", ch: "艺术家", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "drawing", ch: "绘画", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "portrait", ch: "肖像", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "realism", ch: "现实主义", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "realistic", ch: "现实的；实际的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "symbolism", ch: "象征主义", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "symbol", ch: "符号", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "graphic", ch: "图像", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "design", ch: "设计", pos: "v.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "design research", ch: "设计研究", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "designer", ch: "设计师", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "photo", ch: "照片", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "picture", ch: "照片", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "picture library", ch: "照片库", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "pattern", ch: "图案，模式", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "images", ch: "图像", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "painter", ch: "画家", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "painting", ch: "绘画", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "painting class", ch: "绘画课", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "gallery", ch: "画廊", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "open", ch: "打开", pos: "v.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "open gallery", ch: "敞廊", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "display", ch: "展示", pos: "v.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "exhibition", ch: "展览", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "exhibitor", ch: "展览者", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "literature", ch: "文学著作", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "story", ch: "故事", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "story conference", ch: "故事会议", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "culture", ch: "文化", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "cultural", ch: "文化的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "culture context", ch: "文化背景", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "culture awareness", ch: "文化意识", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "edit", ch: "编辑", pos: "v.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "editor", ch: "编辑", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "content", ch: "内容", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "context", ch: "语境；背景", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "poet", ch: "诗人", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "writing", ch: "写作", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "written", ch: "书面的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "written language", ch: "书面语", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "journal", ch: "日记", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "diaries", ch: "日记", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "word", ch: "词", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "vocabulary", ch: "词汇", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "grammar", ch: "语法", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "English", ch: "英语", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "language", ch: "语言", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "modern", ch: "现代的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "modern language", ch: "现代语言", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "campus", ch: "校园", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "notice board", ch: "布告栏", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "poster", ch: "海报", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "post design", ch: "海报设计", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "participation", ch: "参与；参加", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "activities", ch: "活动", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "enjoy", ch: "享受", pos: "v.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "enjoyable", ch: "有乐趣的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "excitement", ch: "兴奋", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "interest", ch: "兴趣", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "personal interest", ch: "个人兴趣", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "entertain", ch: "使有兴趣", pos: "v.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "entertainment", ch: "娱乐", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "passion", ch: "激情", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "leisure", ch: "休闲", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "parties", ch: "聚会", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "afterschool", ch: "课后的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "game", ch: "游戏", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "game room", ch: "游戏室", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "chess", ch: "国际象棋", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "play area", ch: "游乐场", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "playroom", ch: "游戏室", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "playground", ch: "操场", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "sports", ch: "运动", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "sports equipment", ch: "运动装备", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "sports service", ch: "体育服务", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "outdoor", ch: "户外", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "outside", ch: "外部", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "exercises", ch: "运动", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "sensible exercise", ch: "合理的运动", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "regular exercise", ch: "常规训练", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "regular", ch: "有规律的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "practice", ch: "练习", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "practical", ch: "实际的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "practical course", ch: "实践课", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "sports centre", ch: "运动中心", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "sports hall", ch: "体育馆", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "stadium", ch: "体育场", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "health club", ch: "健康俱乐部", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "fitness centre", ch: "健身中心", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "gym", ch: "健身房", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "club", ch: "俱乐部", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "club office", ch: "俱乐部办公室", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "clubroom", ch: "俱乐部聚会室", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "girl club", ch: "女子俱乐部", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "joining fees", ch: "入会费", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "member", ch: "会员", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "membership", ch: "会员", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "action", ch: "动作；作用", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "action point", ch: "行动要点", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "movement", ch: "移动", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "competition", ch: "竞赛", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "competitive", ch: "竞赛的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "ball", ch: "球", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "baseball", ch: "棒球", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "coaches", ch: "教练", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "baseball coach", ch: "棒球教练", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "football", ch: "足球", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "soccer", ch: "足球", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "stopwatch", ch: "码表", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "cycling", ch: "骑自行车", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "surfing", ch: "冲浪运动", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "wind surfing", ch: "冲浪", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "swim", ch: "游泳", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "swimming pool", ch: "游泳池", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "diving", ch: "潜水", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "mask", ch: "面具", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "diving mask", ch: "潜水面罩", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "rescue diver", ch: "救援潜水员", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "wetsuit", ch: "潜水服", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "snow boarding", ch: "滑雪板", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "golf", ch: "高尔夫", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "golf court", ch: "高尔夫球场", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "judo", ch: "柔道", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "yoga", ch: "瑜伽", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "tennis", ch: "网球", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "tennis court", ch: "网球场", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "table tennis", ch: "乒乓球", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "race", ch: "赛跑", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "runner", ch: "跑步者", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "walking", ch: "徒步", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "walking boots", ch: "徒步鞋", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "badge", ch: "徽章", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "prizes", ch: "奖品", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "weight", ch: "体重", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "weight class", ch: "重量级", pos: "phr.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "lateralline", ch: "体测线；支线", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "heavy", ch: "重的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "lifting", ch: "举起", pos: "v.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "strong", ch: "强壮的", pos: "adj.", mainCategory: "Part 2", subCategory: "文体活动" },
-        { en: "strength", ch: "力量", pos: "n.", mainCategory: "Part 2", subCategory: "文体活动" }
-    ];
-
-    const mainCategories = ["Part 2"];
-    const subCategoriesList = ["就业与工作","公共设施与服务","文体活动"];
-
-    let currentMainCat = "Part 2";
-    let currentSubCat = "就业与工作";
-    let currentWords = vocabData.filter(w => w.mainCategory === currentMainCat && w.subCategory === currentSubCat);
-    if (currentWords.length === 0) currentWords = vocabData.filter(w => w.mainCategory === currentMainCat);
-    let currentIndex = 0;
-    let difficultSet = new Set();
-
-    const mainCategoryFlex = document.getElementById('mainCategoryFlex');
-    const subCategoryFlex = document.getElementById('subCategoryFlex');
-    const flipper = document.getElementById('flipper');
-    const mainEn = document.getElementById('mainEn'); 
-    const backEn = document.getElementById('backEn');
-    const posInfo = document.getElementById('posInfo');
-    const mainCh = document.getElementById('mainCh');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const speakBtn = document.getElementById('speakBtn');
-    const thumbGrid = document.getElementById('thumbGrid');
-    const exportBtn = document.getElementById('exportDifficultBtn');
-    const quizOpen = document.getElementById('quizOpenBtn');
-    const quizOverlay = document.getElementById('quizOverlay');
-    const closeQuiz = document.getElementById('closeQuizBtn');
-    const quizWord = document.getElementById('quizWord');
-    const quizPrev = document.getElementById('quizPrevBtn');
-    const quizNext = document.getElementById('quizNextBtn');
-    const quizCounter = document.getElementById('quizCounter');
-
-    flipper.addEventListener('click', () => flipper.classList.toggle('flipped'));
-
-    function renderMainCats() {
-        mainCategoryFlex.innerHTML = '';
-        mainCategories.forEach(cat => {
-            const btn = document.createElement('button');
-            btn.className = `chap-btn active`;
-            btn.innerText = cat;
-            mainCategoryFlex.appendChild(btn);
-        });
-    }
-
-    function renderSubCats() {
-        subCategoryFlex.innerHTML = '';
-        subCategoriesList.forEach(sub => {
-            const btn = document.createElement('button');
-            btn.className = `sub-btn ${sub === currentSubCat ? 'active-sub' : ''}`;
-            btn.innerText = sub;
-            btn.dataset.sub = sub;
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active-sub'));
-                btn.classList.add('active-sub');
-                currentSubCat = sub;
-                updateWordListAndDisplay();
-            });
-            const cnt = vocabData.filter(w => w.mainCategory === currentMainCat && w.subCategory === sub).length;
-            const span = document.createElement('span');
-            span.className = 'word-count-badge';
-            span.innerText = cnt;
-            btn.appendChild(span);
-            subCategoryFlex.appendChild(btn);
-        });
-    }
-
-    function updateWordListAndDisplay() {
-        let filtered = vocabData.filter(w => w.mainCategory === currentMainCat && w.subCategory === currentSubCat);
-        currentWords = filtered;
-        currentIndex = currentWords.length > 0 ? 0 : -1;
-        refreshMainCard();
-        renderThumbnails();
-    }
-
-    function refreshMainCard() {
-        if (currentWords.length === 0 || currentIndex < 0) {
-            mainEn.innerText = '无'; backEn.innerText = ''; posInfo.innerText = ''; mainCh.innerText = ''; return;
+// ================================================================
+// Part 2 完整词汇数据：3 大主题 → 6 个小单元
+// ================================================================
+const VOCAB_STRUCTURE = {
+    // 主题 1: 就业与工作
+    '就业与工作': {
+        units: {
+            '岗位求职面试人员': [
+                { en: 'work', pos: 'n.', ch: '工作' },
+                { en: 'working', pos: 'n.', ch: '工作' },
+                { en: 'workforce', pos: 'n.', ch: '劳动力' },
+                { en: 'workplace', pos: 'n.', ch: '工作场所' },
+                { en: 'workshop', pos: 'n.', ch: '工作室' },
+                { en: 'workload', pos: 'n.', ch: '工作量' },
+                { en: 'worksheet', pos: 'n.', ch: '工作表' },
+                { en: 'practical work', pos: 'phr.', ch: '实践工作' },
+                { en: 'worker', pos: 'n.', ch: '工人' },
+                { en: 'former worker', pos: 'phr.', ch: '离职员工；前任员工' },
+                { en: 'labor', pos: 'n.', ch: '劳动力' },
+                { en: 'staff', pos: 'n.', ch: '员工' },
+                { en: 'comer', pos: 'n.', ch: '来者' },
+                { en: 'employee', pos: 'n.', ch: '雇员' },
+                { en: 'employer', pos: 'n.', ch: '雇主' },
+                { en: 'unemployed', pos: 'adj.', ch: '失业的' },
+                { en: 'job', pos: 'n.', ch: '工作' },
+                { en: 'full time', pos: 'phr.', ch: '全职' },
+                { en: 'part time', pos: 'phr.', ch: '兼职' },
+                { en: 'interview', pos: 'n.', ch: '面试' },
+                { en: 'interview question', pos: 'phr.', ch: '面试问题' },
+                { en: 'phone interview', pos: 'phr.', ch: '电话面试' },
+                { en: 'job interview', pos: 'phr.', ch: '求职面试' },
+                { en: 'interview skills', pos: 'phr.', ch: '面试技巧' },
+                { en: 'job application', pos: 'phr.', ch: '求职申请' },
+                { en: 'issue', pos: 'v.', ch: '发布' },
+                { en: 'invitation', pos: 'n.', ch: '邀请' },
+                { en: 'placement', pos: 'n.', ch: '安排' },
+                { en: 'placement test', pos: 'phr.', ch: '定职测验' },
+                { en: 'hire', pos: 'v.', ch: '雇佣；租用' },
+                { en: 'recruit', pos: 'v./n.', ch: '招募；新成员' },
+                { en: 'retired', pos: 'adj.', ch: '退休的' },
+                { en: 'dismiss', pos: 'v.', ch: '解散' },
+                { en: 'resign', pos: 'v.', ch: '辞职' },
+                { en: 'redundant', pos: 'adj.', ch: '被裁员的' },
+                { en: 'candidate', pos: 'n.', ch: '候选人，求职者' },
+                { en: 'applicant', pos: 'n.', ch: '申请者' },
+                { en: 'volunteer', pos: 'n.', ch: '志愿者' },
+                { en: 'trainee', pos: 'n.', ch: '实习生，受训者' },
+                { en: 'apprentice', pos: 'n.', ch: '学徒' }
+            ],
+            '薪资福利办公培训': [
+                { en: 'reward', pos: 'n.', ch: '报酬；奖励' },
+                { en: 'earn', pos: 'v.', ch: '收入' },
+                { en: 'salary', pos: 'n.', ch: '工资' },
+                { en: 'wages', pos: 'n.', ch: '工资' },
+                { en: 'income', pos: 'n.', ch: '收入' },
+                { en: 'low income', pos: 'phr.', ch: '低收入' },
+                { en: 'bonus', pos: 'n.', ch: '奖金' },
+                { en: 'welfare', pos: 'n.', ch: '福利' },
+                { en: 'allowance', pos: 'n.', ch: '补贴' },
+                { en: 'compensation', pos: 'n.', ch: '补偿' },
+                { en: 'sick pay', pos: 'phr.', ch: '病假津贴' },
+                { en: 'overtime', pos: 'n.', ch: '加班' },
+                { en: 'office', pos: 'n.', ch: '办公室' },
+                { en: 'office equipment', pos: 'phr.', ch: '办公设备' },
+                { en: 'file', pos: 'n.', ch: '档案' },
+                { en: 'document', pos: 'n.', ch: '文件' },
+                { en: 'memo', pos: 'n.', ch: '备忘录' },
+                { en: 'schedule', pos: 'n.', ch: '工作日程' },
+                { en: 'deadline', pos: 'n.', ch: '截止期限' },
+                { en: 'meeting', pos: 'n.', ch: '会议' },
+                { en: 'group organizer', pos: 'phr.', ch: '小组组织者' },
+                { en: 'training', pos: 'n.', ch: '培训' },
+                { en: 'further training', pos: 'phr.', ch: '进阶培训' },
+                { en: 'course', pos: 'n.', ch: '培训课程' },
+                { en: 'promotion', pos: 'n.', ch: '晋升' },
+                { en: 'prospect', pos: 'n.', ch: '职业前景' },
+                { en: 'career', pos: 'n.', ch: '职业生涯' },
+                { en: 'ambition', pos: 'n.', ch: '抱负' },
+                { en: 'motivation', pos: 'n.', ch: '工作动力' },
+                { en: 'pressure', pos: 'n.', ch: '工作压力' },
+                { en: 'stress', pos: 'n.', ch: '压力' },
+                { en: 'efficiency', pos: 'n.', ch: '效率' },
+                { en: 'productive', pos: 'adj.', ch: '产出高的' },
+                { en: 'inefficient', pos: 'adj.', ch: '效率低下的' },
+                { en: 'evaluate', pos: 'v.', ch: '评估' },
+                { en: 'assessment', pos: 'n.', ch: '考评' },
+                { en: 'feedback', pos: 'n.', ch: '反馈' },
+                { en: 'reference', pos: 'n.', ch: '推荐信' }
+            ]
         }
-        const w = currentWords[currentIndex];
-        mainEn.innerText = w.en;
-        backEn.innerText = w.en;
-        posInfo.innerText = w.pos || '';
-        mainCh.innerText = w.ch;
-        flipper.classList.remove('flipped');
-        speakWord(w.en);
-    }
-
-    function speakWord(text) {
-        if ('speechSynthesis' in window) {
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'en-US';
-            window.speechSynthesis.cancel();
-            window.speechSynthesis.speak(utterance);
+    },
+    // 主题 2: 公共设施与服务
+    '公共设施与服务': {
+        units: {
+            '城市场馆公共地点': [
+                { en: 'facility', pos: 'n.', ch: '公共设施' },
+                { en: 'infrastructure', pos: 'n.', ch: '基础设施' },
+                { en: 'community', pos: 'n.', ch: '社区' },
+                { en: 'neighborhood', pos: 'n.', ch: '街区' },
+                { en: 'public area', pos: 'phr.', ch: '公共区域' },
+                { en: 'park', pos: 'n.', ch: '公园' },
+                { en: 'garden', pos: 'n.', ch: '花园' },
+                { en: 'square', pos: 'n.', ch: '广场' },
+                { en: 'stadium', pos: 'n.', ch: '体育场' },
+                { en: 'gym', pos: 'n.', ch: '健身房' },
+                { en: 'library', pos: 'n.', ch: '图书馆' },
+                { en: 'museum', pos: 'n.', ch: '博物馆' },
+                { en: 'gallery', pos: 'n.', ch: '美术馆' },
+                { en: 'theatre', pos: 'n.', ch: '剧院' },
+                { en: 'cinema', pos: 'n.', ch: '电影院' },
+                { en: 'zoo', pos: 'n.', ch: '动物园' },
+                { en: 'aquarium', pos: 'n.', ch: '水族馆' },
+                { en: 'playground', pos: 'n.', ch: '游乐场' },
+                { en: 'recreation centre', pos: 'phr.', ch: '娱乐中心' },
+                { en: 'shopping centre', pos: 'phr.', ch: '购物中心' },
+                { en: 'car park', pos: 'n.', ch: '停车场' },
+                { en: 'toilet', pos: 'n.', ch: '公共厕所' },
+                { en: 'road', pos: 'n.', ch: '道路' },
+                { en: 'street', pos: 'n.', ch: '街道' },
+                { en: 'path', pos: 'n.', ch: '小路' },
+                { en: 'route', pos: 'n.', ch: '路线' },
+                { en: 'cross‑road', pos: 'n.', ch: '十字路口' },
+                { en: 'pavement', pos: 'n.', ch: '人行道' },
+                { en: 'pedestrian', pos: 'n.', ch: '行人' },
+                { en: 'bus station', pos: 'phr.', ch: '公交总站' },
+                { en: 'coach station', pos: 'phr.', ch: '长途汽车站' }
+            ],
+            '治安法律公共制度': [
+                { en: 'sign', pos: 'n.', ch: '标识，指示牌' },
+                { en: 'traffic sign', pos: 'phr.', ch: '交通标志' },
+                { en: 'advertisement', pos: 'n.', ch: '广告' },
+                { en: 'public service', pos: 'phr.', ch: '公共服务' },
+                { en: 'security', pos: 'n.', ch: '安保，安全' },
+                { en: 'safety', pos: 'n.', ch: '安全' },
+                { en: 'police', pos: 'n.', ch: '警察' },
+                { en: 'police station', pos: 'phr.', ch: '警察局' },
+                { en: 'fire station', pos: 'phr.', ch: '消防站' },
+                { en: 'post office', pos: 'phr.', ch: '邮局' },
+                { en: 'bank', pos: 'n.', ch: '银行' },
+                { en: 'hospital', pos: 'n.', ch: '医院' },
+                { en: 'school', pos: 'n.', ch: '学校' },
+                { en: 'law', pos: 'n.', ch: '法律' },
+                { en: 'legal', pos: 'adj.', ch: '合法的' },
+                { en: 'illegal', pos: 'adj.', ch: '非法的' },
+                { en: 'crime', pos: 'n.', ch: '犯罪' },
+                { en: 'criminal', pos: 'n.', ch: '罪犯' },
+                { en: 'fine', pos: 'n.', ch: '罚金' },
+                { en: 'punish', pos: 'v.', ch: '惩罚' },
+                { en: 'regulation', pos: 'n.', ch: '规章制度' },
+                { en: 'rule', pos: 'n.', ch: '规则' },
+                { en: 'policy', pos: 'n.', ch: '政策' },
+                { en: 'guideline', pos: 'n.', ch: '指导方针' },
+                { en: 'restriction', pos: 'n.', ch: '限制规定' },
+                { en: 'prohibit', pos: 'v.', ch: '禁止' },
+                { en: 'permit', pos: 'n.', ch: '许可证' },
+                { en: 'license', pos: 'n.', ch: '执照' },
+                { en: 'application', pos: 'n.', ch: '申请' },
+                { en: 'resident', pos: 'n.', ch: '居民' },
+                { en: 'citizen', pos: 'n.', ch: '公民' }
+            ]
+        }
+    },
+    // 主题 3: 文体活动
+    '文体活动': {
+        units: {
+            '艺术音乐媒体文学': [
+                { en: 'art', pos: 'n.', ch: '艺术' },
+                { en: 'painting', pos: 'n.', ch: '绘画' },
+                { en: 'drawing', pos: 'n.', ch: '素描' },
+                { en: 'sculpture', pos: 'n.', ch: '雕塑' },
+                { en: 'exhibition', pos: 'n.', ch: '展览' },
+                { en: 'display', pos: 'n.', ch: '展品，陈列' },
+                { en: 'craft', pos: 'n.', ch: '手工艺' },
+                { en: 'music', pos: 'n.', ch: '音乐' },
+                { en: 'musical', pos: 'adj.', ch: '音乐的' },
+                { en: 'instrument', pos: 'n.', ch: '乐器' },
+                { en: 'concert', pos: 'n.', ch: '音乐会' },
+                { en: 'band', pos: 'n.', ch: '乐队' },
+                { en: 'song', pos: 'n.', ch: '歌曲' },
+                { en: 'melody', pos: 'n.', ch: '旋律' },
+                { en: 'rhythm', pos: 'n.', ch: '节奏' },
+                { en: 'performance', pos: 'n.', ch: '表演' },
+                { en: 'show', pos: 'n.', ch: '演出' },
+                { en: 'movie', pos: 'n.', ch: '电影' },
+                { en: 'film', pos: 'n.', ch: '影片' },
+                { en: 'video', pos: 'n.', ch: '视频' },
+                { en: 'documentary', pos: 'n.', ch: '纪录片' },
+                { en: 'media', pos: 'n.', ch: '媒体' },
+                { en: 'journalism', pos: 'n.', ch: '新闻业' },
+                { en: 'press', pos: 'n.', ch: '新闻报刊' },
+                { en: 'literature', pos: 'n.', ch: '文学' },
+                { en: 'book', pos: 'n.', ch: '书籍' },
+                { en: 'novel', pos: 'n.', ch: '小说' },
+                { en: 'poem', pos: 'n.', ch: '诗歌' },
+                { en: 'magazine', pos: 'n.', ch: '杂志' },
+                { en: 'newspaper', pos: 'n.', ch: '报纸' },
+                { en: 'article', pos: 'n.', ch: '文章' }
+            ],
+            '体育休闲节日活动': [
+                { en: 'sport', pos: 'n.', ch: '体育运动' },
+                { en: 'exercise', pos: 'n.', ch: '锻炼' },
+                { en: 'running', pos: 'n.', ch: '跑步' },
+                { en: 'swimming', pos: 'n.', ch: '游泳' },
+                { en: 'cycling', pos: 'n.', ch: '骑行' },
+                { en: 'hiking', pos: 'n.', ch: '徒步' },
+                { en: 'climbing', pos: 'n.', ch: '攀岩' },
+                { en: 'match', pos: 'n.', ch: '比赛' },
+                { en: 'competition', pos: 'n.', ch: '竞赛' },
+                { en: 'race', pos: 'n.', ch: '赛跑，竞赛' },
+                { en: 'champion', pos: 'n.', ch: '冠军' },
+                { en: 'tournament', pos: 'n.', ch: '锦标赛' },
+                { en: 'amateur', pos: 'n.', ch: '业余爱好者' },
+                { en: 'professional', pos: 'n.', ch: '专业选手' },
+                { en: 'player', pos: 'n.', ch: '运动员，选手' },
+                { en: 'coach', pos: 'n.', ch: '教练' },
+                { en: 'leisure', pos: 'n.', ch: '休闲' },
+                { en: 'entertainment', pos: 'n.', ch: '娱乐' },
+                { en: 'recreation', pos: 'n.', ch: '消遣活动' },
+                { en: 'hobby', pos: 'n.', ch: '爱好' },
+                { en: 'pastime', pos: 'n.', ch: '消遣' },
+                { en: 'festival', pos: 'n.', ch: '节日活动' },
+                { en: 'celebration', pos: 'n.', ch: '庆典' },
+                { en: 'parade', pos: 'n.', ch: '游行' },
+                { en: 'carnival', pos: 'n.', ch: '狂欢节' },
+                { en: 'gathering', pos: 'n.', ch: '聚会' },
+                { en: 'picnic', pos: 'n.', ch: '野餐' },
+                { en: 'outing', pos: 'n.', ch: '短途出游' }
+            ]
         }
     }
+};
 
-    function renderThumbnails() {
-        thumbGrid.innerHTML = '';
-        currentWords.forEach((w, idx) => {
-            const key = `${w.en}|${w.ch}`;
-            const card = document.createElement('div');
-            card.className = 'thumb-item';
-            card.innerHTML = `<input type="checkbox" class="diff-check" data-key="${key}" ${difficultSet.has(key) ? 'checked' : ''}><label>${w.en}</label>`;
-            card.addEventListener('click', (e) => {
-                if (e.target.tagName !== 'INPUT') { currentIndex = idx; refreshMainCard(); }
+// ================================================================
+// 构建扁平词汇列表（用于快速查找和显示）
+// ================================================================
+const allVocab = [];
+const themeList = Object.keys(VOCAB_STRUCTURE);
+const unitMap = {}; // theme -> unitName -> [words]
+
+themeList.forEach(theme => {
+    const units = VOCAB_STRUCTURE[theme].units;
+    const unitNames = Object.keys(units);
+    unitMap[theme] = unitNames;
+    unitNames.forEach(unitName => {
+        const words = units[unitName] || [];
+        words.forEach(w => {
+            allVocab.push({
+                en: w.en,
+                ch: w.ch,
+                pos: w.pos,
+                theme: theme,
+                unit: unitName
             });
-            const chk = card.querySelector('.diff-check');
-            chk.addEventListener('change', (e) => {
-                e.stopPropagation();
-                const k = e.target.dataset.key;
-                e.target.checked ? difficultSet.add(k) : difficultSet.delete(k);
-            });
-            thumbGrid.appendChild(card);
         });
-    }
-
-    function exportDifficult() {
-        const selected = vocabData.filter(v => difficultSet.has(`${v.en}|${v.ch}`));
-        if (!selected.length) { alert('没有勾选难词'); return; }
-        let csv = "英文,词性,中文含义\n";
-        selected.forEach(w => csv += `"${w.en}","${w.pos || ''}","${w.ch}"\n`);
-        const blob = new Blob(["\uFEFF"+csv], {type:"text/csv;charset=utf-8;"});
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "ielts_listening_difficult_words_part2.csv";
-        link.click();
-    }
-
-    let quizList = [], quizIdx = 0;
-    function openQuiz() {
-        if (!currentWords.length) return;
-        const shuffled = [...currentWords].sort(()=>Math.random()-0.5);
-        quizList = shuffled.slice(0, Math.min(20, currentWords.length));
-        quizIdx = 0; updateQuizDisplay(); quizOverlay.classList.add('show');
-    }
-    function updateQuizDisplay() { if(quizList.length){ quizWord.innerText = quizList[quizIdx].en; quizCounter.innerText = `${quizIdx+1}/${quizList.length}`; } }
-    function closeQuizFn() { quizOverlay.classList.remove('show'); }
-
-    prevBtn.addEventListener('click', ()=>{
-        if(!currentWords.length) return;
-        currentIndex = (currentIndex-1+currentWords.length)%currentWords.length; refreshMainCard();
     });
-    nextBtn.addEventListener('click', ()=>{
-        if(!currentWords.length) return;
-        currentIndex = (currentIndex+1)%currentWords.length; refreshMainCard();
-    });
-    speakBtn.addEventListener('click', ()=>{
-        if(currentWords[currentIndex]) speakWord(currentWords[currentIndex].en);
-    });
-    exportBtn.addEventListener('click', exportDifficult);
-    quizOpen.addEventListener('click', openQuiz);
-    closeQuiz.addEventListener('click', closeQuizFn);
-    quizPrev.addEventListener('click', ()=>{ if(quizList.length){ quizIdx = (quizIdx-1+quizList.length)%quizList.length; updateQuizDisplay(); } });
-    quizNext.addEventListener('click', ()=>{ if(quizList.length){ quizIdx = (quizIdx+1)%quizList.length; updateQuizDisplay(); } });
-    quizOverlay.addEventListener('click', (e)=>{ if(e.target===quizOverlay) closeQuizFn(); });
+});
 
-    renderMainCats(); renderSubCats();
-    setTimeout(()=>{ const f=document.querySelector('.sub-btn'); if(f) f.classList.add('active-sub'); },20);
-    updateWordListAndDisplay();
-})();
+// 统计总数
+document.getElementById('totalWordCount').textContent = allVocab.length;
+
+// ================================================================
+// 应用状态
+// ================================================================
+let currentTheme = themeList[0] || '就业与工作';
+let currentUnit = (unitMap[currentTheme] && unitMap[currentTheme][0]) || '岗位求职面试人员';
+let currentWords = allVocab.filter(w => w.theme === currentTheme && w.unit === currentUnit);
+let currentIndex = 0;
+let difficultSet = new Set();
+
+// DOM 元素
+const mainCategoryFlex = document.getElementById('mainCategoryFlex');
+const subCategoryFlex = document.getElementById('subCategoryFlex');
+const unitFlex = document.getElementById('unitFlex');
+const flipper = document.getElementById('flipper');
+const mainEn = document.getElementById('mainEn');
+const backEn = document.getElementById('backEn');
+const posInfo = document.getElementById('posInfo');
+const mainCh = document.getElementById('mainCh');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const speakBtn = document.getElementById('speakBtn');
+const thumbGrid = document.getElementById('thumbGrid');
+const exportBtn = document.getElementById('exportDifficultBtn');
+const selectAllBtn = document.getElementById('selectAllBtn');
+const deselectAllBtn = document.getElementById('deselectAllBtn');
+const quizOpen = document.getElementById('quizOpenBtn');
+const quizOverlay = document.getElementById('quizOverlay');
+const closeQuiz = document.getElementById('closeQuizBtn');
+const quizWord = document.getElementById('quizWord');
+const quizPrev = document.getElementById('quizPrevBtn');
+const quizNext = document.getElementById('quizNextBtn');
+const quizCounter = document.getElementById('quizCounter');
+
+// 翻转卡片
+flipper.addEventListener('click', () => flipper.classList.toggle('flipped'));
+
+// ---- 渲染第一级：Part 2 (固定) ----
+function renderMainCats() {
+    mainCategoryFlex.innerHTML = '';
+    const btn = document.createElement('button');
+    btn.className = 'chap-btn active';
+    btn.innerText = 'Part 2';
+    mainCategoryFlex.appendChild(btn);
+}
+
+// ---- 渲染第二级：3 大主题 ----
+function renderThemes() {
+    subCategoryFlex.innerHTML = '';
+    themeList.forEach(theme => {
+        const btn = document.createElement('button');
+        btn.className = `sub-btn ${theme === currentTheme ? 'active-sub' : ''}`;
+        btn.innerText = theme;
+        btn.dataset.theme = theme;
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active-sub'));
+            btn.classList.add('active-sub');
+            currentTheme = theme;
+            // 切换到该主题的第一个单元
+            const units = unitMap[theme] || [];
+            currentUnit = units.length > 0 ? units[0] : '';
+            renderUnits();
+            updateWordListAndDisplay();
+        });
+        // 统计该主题下所有词汇数
+        const cnt = allVocab.filter(w => w.theme === theme).length;
+        const span = document.createElement('span');
+        span.className = 'word-count-badge';
+        span.innerText = cnt;
+        btn.appendChild(span);
+        subCategoryFlex.appendChild(btn);
+    });
+}
+
+// ---- 渲染第三级：6 个小单元 ----
+function renderUnits() {
+    unitFlex.innerHTML = '';
+    const units = unitMap[currentTheme] || [];
+    units.forEach(unitName => {
+        const btn = document.createElement('button');
+        btn.className = `unit-btn ${unitName === currentUnit ? 'active-unit' : ''}`;
+        btn.innerText = unitName;
+        btn.dataset.unit = unitName;
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active-unit'));
+            btn.classList.add('active-unit');
+            currentUnit = unitName;
+            updateWordListAndDisplay();
+        });
+        const cnt = allVocab.filter(w => w.theme === currentTheme && w.unit === unitName).length;
+        const span = document.createElement('span');
+        span.className = 'word-count-badge';
+        span.innerText = cnt;
+        btn.appendChild(span);
+        unitFlex.appendChild(btn);
+    });
+}
+
+// ---- 更新当前词汇列表并刷新显示 ----
+function updateWordListAndDisplay() {
+    currentWords = allVocab.filter(w => w.theme === currentTheme && w.unit === currentUnit);
+    currentIndex = currentWords.length > 0 ? 0 : -1;
+    refreshMainCard();
+    renderThumbnails();
+}
+
+function refreshMainCard() {
+    if (currentWords.length === 0 || currentIndex < 0) {
+        mainEn.innerText = '无';
+        backEn.innerText = '';
+        posInfo.innerText = '';
+        mainCh.innerText = '';
+        return;
+    }
+    const w = currentWords[currentIndex];
+    mainEn.innerText = w.en;
+    backEn.innerText = w.en;
+    posInfo.innerText = w.pos || '';
+    mainCh.innerText = w.ch;
+    flipper.classList.remove('flipped');
+    speakWord(w.en);
+}
+
+function speakWord(text) {
+    if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+// ---- 渲染缩略图 ----
+function renderThumbnails() {
+    thumbGrid.innerHTML = '';
+    currentWords.forEach((w, idx) => {
+        const key = `${w.en}|${w.ch}`;
+        const card = document.createElement('div');
+        card.className = 'thumb-item';
+        card.innerHTML = `<input type="checkbox" class="diff-check" data-key="${key}" ${difficultSet.has(key) ? 'checked' : ''}><label>${w.en}</label>`;
+        card.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'INPUT') { currentIndex = idx; refreshMainCard(); }
+        });
+        const chk = card.querySelector('.diff-check');
+        chk.addEventListener('change', (e) => {
+            e.stopPropagation();
+            const k = e.target.dataset.key;
+            e.target.checked ? difficultSet.add(k) : difficultSet.delete(k);
+        });
+        thumbGrid.appendChild(card);
+    });
+}
+
+// ---- 全选 / 取消全选 ----
+function setAllChecks(checked) {
+    const checks = thumbGrid.querySelectorAll('.diff-check');
+    checks.forEach(chk => {
+        chk.checked = checked;
+        const key = chk.dataset.key;
+        if (checked) difficultSet.add(key);
+        else difficultSet.delete(key);
+    });
+}
+
+selectAllBtn.addEventListener('click', () => setAllChecks(true));
+deselectAllBtn.addEventListener('click', () => setAllChecks(false));
+
+// ---- 导出难词 ----
+function exportDifficult() {
+    const selected = allVocab.filter(v => difficultSet.has(`${v.en}|${v.ch}`));
+    if (!selected.length) { alert('没有勾选难词'); return; }
+    let csv = "英文,词性,中文含义,主题,单元\n";
+    selected.forEach(w => csv += `"${w.en}","${w.pos || ''}","${w.ch}","${w.theme}","${w.unit}"\n`);
+    const blob = new Blob(["\uFEFF"+csv], {type:"text/csv;charset=utf-8;"});
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "ielts_listening_difficult_words_part2.csv";
+    link.click();
+}
+
+exportBtn.addEventListener('click', exportDifficult);
+
+// ---- Quiz 逻辑 ----
+let quizList = [], quizIdx = 0;
+function openQuiz() {
+    if (!currentWords.length) return;
+    const shuffled = [...currentWords].sort(()=>Math.random()-0.5);
+    quizList = shuffled.slice(0, Math.min(20, currentWords.length));
+    quizIdx = 0; updateQuizDisplay(); quizOverlay.classList.add('show');
+}
+function updateQuizDisplay() { if(quizList.length){ quizWord.innerText = quizList[quizIdx].en; quizCounter.innerText = `${quizIdx+1}/${quizList.length}`; } }
+function closeQuizFn() { quizOverlay.classList.remove('show'); }
+
+quizOpen.addEventListener('click', openQuiz);
+closeQuiz.addEventListener('click', closeQuizFn);
+quizPrev.addEventListener('click', ()=>{ if(quizList.length){ quizIdx = (quizIdx-1+quizList.length)%quizList.length; updateQuizDisplay(); } });
+quizNext.addEventListener('click', ()=>{ if(quizList.length){ quizIdx = (quizIdx+1)%quizList.length; updateQuizDisplay(); } });
+quizOverlay.addEventListener('click', (e)=>{ if(e.target===quizOverlay) closeQuizFn(); });
+
+// ---- 导航 ----
+prevBtn.addEventListener('click', ()=>{
+    if(!currentWords.length) return;
+    currentIndex = (currentIndex-1+currentWords.length)%currentWords.length; refreshMainCard();
+});
+nextBtn.addEventListener('click', ()=>{
+    if(!currentWords.length) return;
+    currentIndex = (currentIndex+1)%currentWords.length; refreshMainCard();
+});
+speakBtn.addEventListener('click', ()=>{
+    if(currentWords[currentIndex]) speakWord(currentWords[currentIndex].en);
+});
+
+// ---- 初始化 ----
+renderMainCats();
+renderThemes();
+renderUnits();
+updateWordListAndDisplay();
 </script>
 </body>
 </html>
