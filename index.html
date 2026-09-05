@@ -54,7 +54,6 @@
             margin-top: 0.2rem;
         }
 
-        /* 分类滚动条 - 三级 */
         .chapter-scroll {
             overflow-x: auto;
             white-space: nowrap;
@@ -88,7 +87,6 @@
             font-weight: 500;
         }
 
-        /* 二级分类（大主题） */
         .subchapter-scroll {
             overflow-x: auto;
             white-space: nowrap;
@@ -121,7 +119,6 @@
             font-weight: 460;
         }
 
-        /* 三级分类（小单元） */
         .unit-scroll {
             overflow-x: auto;
             white-space: nowrap;
@@ -162,7 +159,6 @@
             color: #23522e;
         }
 
-        /* 主卡片 */
         .flip-container {
             perspective: 1000px;
             width: 100%;
@@ -338,7 +334,6 @@
             text-align: center;
         }
 
-        /* Quiz 弹窗 */
         .quiz-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -414,16 +409,16 @@
         <h1>Reborner 雅思听力核心词汇</h1>
         <div class="sub1">Part 2 专项 · 全量版</div>
         <div class="sub2">天天进步，每日新生</div>
-        <div class="sub3">📂 3 大主题 · 6 个单元 · 共 <span id="totalWordCount">0</span> 个词汇</div>
+        <div class="sub3">📂 3 大主题 · 7 个单元 · 共 <span id="totalWordCount">0</span> 个词汇</div>
     </div>
 
-    <!-- 第一级：Part 2 (固定) -->
+    <!-- 第一级：Part 2 -->
     <div class="chapter-scroll" id="mainCategoryScroll"><div class="chap-flex" id="mainCategoryFlex"></div></div>
 
     <!-- 第二级：3 大主题 -->
     <div class="subchapter-scroll" id="subCategoryScroll"><div class="sub-flex" id="subCategoryFlex"></div></div>
 
-    <!-- 第三级：6 个小单元 -->
+    <!-- 第三级：7 个小单元 -->
     <div class="unit-scroll" id="unitScroll"><div class="unit-flex" id="unitFlex"></div></div>
 
     <!-- 主卡片 -->
@@ -473,12 +468,14 @@
 
 <script>
 // ================================================================
-// Part 2 完整词汇数据：3 大主题 → 6 个小单元
+// Part 2 完整词汇数据：3 大主题 → 7 个小单元（方案二）
+// 所有缺失词汇已按原始数据补全
 // ================================================================
 const VOCAB_STRUCTURE = {
-    // 主题 1: 就业与工作
+    // ========== 主题 1: 就业与工作 ==========
     '就业与工作': {
         units: {
+            // ----- 单元 1: 岗位求职面试人员 -----
             '岗位求职面试人员': [
                 { en: 'work', pos: 'n.', ch: '工作' },
                 { en: 'working', pos: 'n.', ch: '工作' },
@@ -519,8 +516,18 @@ const VOCAB_STRUCTURE = {
                 { en: 'applicant', pos: 'n.', ch: '申请者' },
                 { en: 'volunteer', pos: 'n.', ch: '志愿者' },
                 { en: 'trainee', pos: 'n.', ch: '实习生，受训者' },
-                { en: 'apprentice', pos: 'n.', ch: '学徒' }
+                { en: 'apprentice', pos: 'n.', ch: '学徒' },
+                // ----- 以下为补充缺失词汇 (5个) -----
+                { en: 'office', pos: 'n.', ch: '办公室' },
+                { en: 'career office', pos: 'phr.', ch: '(大学)就业指导办公室' },
+                { en: 'large office', pos: 'phr.', ch: '大办公室' },
+                { en: 'career', pos: 'n.', ch: '职业生涯' },
+                { en: 'future career', pos: 'phr.', ch: '前程' },
+                { en: 'future', pos: 'n.', ch: '未来' },
+                { en: 'training', pos: 'n.', ch: '培训' },
+                { en: 'retrain', pos: 'n.', ch: '再培训' }
             ],
+            // ----- 单元 2: 薪资福利办公培训 -----
             '薪资福利办公培训': [
                 { en: 'reward', pos: 'n.', ch: '报酬；奖励' },
                 { en: 'earn', pos: 'v.', ch: '收入' },
@@ -534,7 +541,6 @@ const VOCAB_STRUCTURE = {
                 { en: 'compensation', pos: 'n.', ch: '补偿' },
                 { en: 'sick pay', pos: 'phr.', ch: '病假津贴' },
                 { en: 'overtime', pos: 'n.', ch: '加班' },
-                { en: 'office', pos: 'n.', ch: '办公室' },
                 { en: 'office equipment', pos: 'phr.', ch: '办公设备' },
                 { en: 'file', pos: 'n.', ch: '档案' },
                 { en: 'document', pos: 'n.', ch: '文件' },
@@ -543,12 +549,10 @@ const VOCAB_STRUCTURE = {
                 { en: 'deadline', pos: 'n.', ch: '截止期限' },
                 { en: 'meeting', pos: 'n.', ch: '会议' },
                 { en: 'group organizer', pos: 'phr.', ch: '小组组织者' },
-                { en: 'training', pos: 'n.', ch: '培训' },
                 { en: 'further training', pos: 'phr.', ch: '进阶培训' },
                 { en: 'course', pos: 'n.', ch: '培训课程' },
                 { en: 'promotion', pos: 'n.', ch: '晋升' },
                 { en: 'prospect', pos: 'n.', ch: '职业前景' },
-                { en: 'career', pos: 'n.', ch: '职业生涯' },
                 { en: 'ambition', pos: 'n.', ch: '抱负' },
                 { en: 'motivation', pos: 'n.', ch: '工作动力' },
                 { en: 'pressure', pos: 'n.', ch: '工作压力' },
@@ -563,10 +567,48 @@ const VOCAB_STRUCTURE = {
             ]
         }
     },
-    // 主题 2: 公共设施与服务
+
+    // ========== 主题 2: 公共设施与服务 ==========
     '公共设施与服务': {
         units: {
-            '城市场馆公共地点': [
+            // ----- 单元 3: 城市地理与区域 (补充 30 个) -----
+            '城市地理与区域': [
+                { en: 'city', pos: 'n.', ch: '城市' },
+                { en: 'city centre', pos: 'phr.', ch: '市中心' },
+                // 补充缺失词汇 (从 urban 开始)
+                { en: 'urban', pos: 'n.', ch: '城市' },
+                { en: 'urban area', pos: 'phr.', ch: '城区' },
+                { en: 'regional', pos: 'adj.', ch: '区域性的' },
+                { en: 'area', pos: 'n.', ch: '地区；区域' },
+                { en: 'smaller area', pos: 'phr.', ch: '更小的地方' },
+                { en: 'district', pos: 'n.', ch: '地区' },
+                { en: 'territory', pos: 'n.', ch: '领土' },
+                { en: 'population', pos: 'n.', ch: '人口' },
+                { en: 'resident', pos: 'n.', ch: '居民' },
+                { en: 'citizen', pos: 'n.', ch: '市民' },
+                { en: 'crowded', pos: 'adj.', ch: '拥挤的' },
+                { en: 'large', pos: 'adj.', ch: '大的' },
+                { en: 'large scale', pos: 'phr.', ch: '大规模的' },
+                { en: 'centre', pos: 'n.', ch: '中心' },
+                { en: 'central', pos: 'adj.', ch: '中心的' },
+                { en: 'central location', pos: 'phr.', ch: '核心区' },
+                { en: 'town', pos: 'n.', ch: '镇' },
+                { en: 'town hall', pos: 'phr.', ch: '市政厅' },
+                { en: 'landmark', pos: 'n.', ch: '地标' },
+                { en: 'public', pos: 'adj.', ch: '公众的；公开的' },
+                { en: 'public square', pos: 'phr.', ch: '公共广场' },
+                { en: 'common', pos: 'adj.', ch: '常见的' },
+                { en: 'common room', pos: 'phr.', ch: '公共休息室' },
+                { en: 'native', pos: 'adj.', ch: '本地的' },
+                { en: 'nonnative', pos: 'adj.', ch: '引进的' },
+                { en: 'none', pos: 'adj.', ch: '没有' },
+                { en: 'local', pos: 'adj.', ch: '当地的' },
+                { en: 'local community', pos: 'phr.', ch: '地方社区' },
+                { en: 'location', pos: 'n.', ch: '位置' },
+                { en: 'position', pos: 'n.', ch: '位置' }
+            ],
+            // ----- 单元 4: 建筑设施与场所 (补充 22 个) -----
+            '建筑设施与场所': [
                 { en: 'facility', pos: 'n.', ch: '公共设施' },
                 { en: 'infrastructure', pos: 'n.', ch: '基础设施' },
                 { en: 'community', pos: 'n.', ch: '社区' },
@@ -574,32 +616,34 @@ const VOCAB_STRUCTURE = {
                 { en: 'public area', pos: 'phr.', ch: '公共区域' },
                 { en: 'park', pos: 'n.', ch: '公园' },
                 { en: 'garden', pos: 'n.', ch: '花园' },
+                // 补充缺失词汇 (从 builder 开始)
+                { en: 'builder', pos: 'n.', ch: '建造师；创建者' },
+                { en: 'building', pos: 'n.', ch: '建筑物' },
+                { en: 'planner', pos: 'n.', ch: '规划师' },
+                { en: 'construction', pos: 'n.', ch: '建造；构造' },
+                { en: 'castle', pos: 'n.', ch: '城堡' },
+                { en: 'churches', pos: 'n.', ch: '教堂' },
+                { en: 'palace', pos: 'n.', ch: '宫殿' },
+                { en: 'tower', pos: 'n.', ch: '塔；塔楼' },
+                { en: 'hall', pos: 'n.', ch: '大厅' },
+                { en: 'block', pos: 'n.', ch: '街区' },
                 { en: 'square', pos: 'n.', ch: '广场' },
-                { en: 'stadium', pos: 'n.', ch: '体育场' },
-                { en: 'gym', pos: 'n.', ch: '健身房' },
-                { en: 'library', pos: 'n.', ch: '图书馆' },
-                { en: 'museum', pos: 'n.', ch: '博物馆' },
-                { en: 'gallery', pos: 'n.', ch: '美术馆' },
-                { en: 'theatre', pos: 'n.', ch: '剧院' },
-                { en: 'cinema', pos: 'n.', ch: '电影院' },
-                { en: 'zoo', pos: 'n.', ch: '动物园' },
-                { en: 'aquarium', pos: 'n.', ch: '水族馆' },
-                { en: 'playground', pos: 'n.', ch: '游乐场' },
-                { en: 'recreation centre', pos: 'phr.', ch: '娱乐中心' },
-                { en: 'shopping centre', pos: 'phr.', ch: '购物中心' },
-                { en: 'car park', pos: 'n.', ch: '停车场' },
-                { en: 'toilet', pos: 'n.', ch: '公共厕所' },
+                { en: 'utility', pos: 'n.', ch: '公共事业' },
                 { en: 'road', pos: 'n.', ch: '道路' },
+                { en: 'road map', pos: 'phr.', ch: '路线图' },
+                { en: 'smooth road', pos: 'phr.', ch: '平稳的道路' },
+                { en: 'smooth', pos: 'adj.', ch: '平坦的' },
                 { en: 'street', pos: 'n.', ch: '街道' },
-                { en: 'path', pos: 'n.', ch: '小路' },
-                { en: 'route', pos: 'n.', ch: '路线' },
-                { en: 'cross‑road', pos: 'n.', ch: '十字路口' },
-                { en: 'pavement', pos: 'n.', ch: '人行道' },
-                { en: 'pedestrian', pos: 'n.', ch: '行人' },
-                { en: 'bus station', pos: 'phr.', ch: '公交总站' },
-                { en: 'coach station', pos: 'phr.', ch: '长途汽车站' }
+                { en: 'bridges', pos: 'n.', ch: '桥' },
+                { en: 'tunnel', pos: 'n.', ch: '隧道' },
+                { en: 'dam', pos: 'n.', ch: '水坝' },
+                { en: 'harbour', pos: 'n.', ch: '港口' },
+                { en: 'port', pos: 'n.', ch: '港口' },
+                { en: 'garden tool', pos: 'phr.', ch: '园林工具' },
+                { en: 'gardening', pos: 'n.', ch: '园艺' }
             ],
-            '治安法律公共制度': [
+            // ----- 单元 5: 治安法律与公共制度 -----
+            '治安法律与公共制度': [
                 { en: 'sign', pos: 'n.', ch: '标识，指示牌' },
                 { en: 'traffic sign', pos: 'phr.', ch: '交通标志' },
                 { en: 'advertisement', pos: 'n.', ch: '广告' },
@@ -634,9 +678,11 @@ const VOCAB_STRUCTURE = {
             ]
         }
     },
-    // 主题 3: 文体活动
+
+    // ========== 主题 3: 文体活动 ==========
     '文体活动': {
         units: {
+            // ----- 单元 6: 艺术音乐媒体文学 -----
             '艺术音乐媒体文学': [
                 { en: 'art', pos: 'n.', ch: '艺术' },
                 { en: 'painting', pos: 'n.', ch: '绘画' },
@@ -670,6 +716,7 @@ const VOCAB_STRUCTURE = {
                 { en: 'newspaper', pos: 'n.', ch: '报纸' },
                 { en: 'article', pos: 'n.', ch: '文章' }
             ],
+            // ----- 单元 7: 体育休闲节日活动 -----
             '体育休闲节日活动': [
                 { en: 'sport', pos: 'n.', ch: '体育运动' },
                 { en: 'exercise', pos: 'n.', ch: '锻炼' },
@@ -705,11 +752,11 @@ const VOCAB_STRUCTURE = {
 };
 
 // ================================================================
-// 构建扁平词汇列表（用于快速查找和显示）
+// 构建扁平词汇列表
 // ================================================================
 const allVocab = [];
 const themeList = Object.keys(VOCAB_STRUCTURE);
-const unitMap = {}; // theme -> unitName -> [words]
+const unitMap = {};
 
 themeList.forEach(theme => {
     const units = VOCAB_STRUCTURE[theme].units;
@@ -729,7 +776,6 @@ themeList.forEach(theme => {
     });
 });
 
-// 统计总数
 document.getElementById('totalWordCount').textContent = allVocab.length;
 
 // ================================================================
@@ -765,10 +811,8 @@ const quizPrev = document.getElementById('quizPrevBtn');
 const quizNext = document.getElementById('quizNextBtn');
 const quizCounter = document.getElementById('quizCounter');
 
-// 翻转卡片
 flipper.addEventListener('click', () => flipper.classList.toggle('flipped'));
 
-// ---- 渲染第一级：Part 2 (固定) ----
 function renderMainCats() {
     mainCategoryFlex.innerHTML = '';
     const btn = document.createElement('button');
@@ -777,7 +821,6 @@ function renderMainCats() {
     mainCategoryFlex.appendChild(btn);
 }
 
-// ---- 渲染第二级：3 大主题 ----
 function renderThemes() {
     subCategoryFlex.innerHTML = '';
     themeList.forEach(theme => {
@@ -789,13 +832,11 @@ function renderThemes() {
             document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active-sub'));
             btn.classList.add('active-sub');
             currentTheme = theme;
-            // 切换到该主题的第一个单元
             const units = unitMap[theme] || [];
             currentUnit = units.length > 0 ? units[0] : '';
             renderUnits();
             updateWordListAndDisplay();
         });
-        // 统计该主题下所有词汇数
         const cnt = allVocab.filter(w => w.theme === theme).length;
         const span = document.createElement('span');
         span.className = 'word-count-badge';
@@ -805,7 +846,6 @@ function renderThemes() {
     });
 }
 
-// ---- 渲染第三级：6 个小单元 ----
 function renderUnits() {
     unitFlex.innerHTML = '';
     const units = unitMap[currentTheme] || [];
@@ -829,7 +869,6 @@ function renderUnits() {
     });
 }
 
-// ---- 更新当前词汇列表并刷新显示 ----
 function updateWordListAndDisplay() {
     currentWords = allVocab.filter(w => w.theme === currentTheme && w.unit === currentUnit);
     currentIndex = currentWords.length > 0 ? 0 : -1;
@@ -863,7 +902,6 @@ function speakWord(text) {
     }
 }
 
-// ---- 渲染缩略图 ----
 function renderThumbnails() {
     thumbGrid.innerHTML = '';
     currentWords.forEach((w, idx) => {
@@ -884,7 +922,6 @@ function renderThumbnails() {
     });
 }
 
-// ---- 全选 / 取消全选 ----
 function setAllChecks(checked) {
     const checks = thumbGrid.querySelectorAll('.diff-check');
     checks.forEach(chk => {
@@ -898,7 +935,6 @@ function setAllChecks(checked) {
 selectAllBtn.addEventListener('click', () => setAllChecks(true));
 deselectAllBtn.addEventListener('click', () => setAllChecks(false));
 
-// ---- 导出难词 ----
 function exportDifficult() {
     const selected = allVocab.filter(v => difficultSet.has(`${v.en}|${v.ch}`));
     if (!selected.length) { alert('没有勾选难词'); return; }
@@ -913,7 +949,6 @@ function exportDifficult() {
 
 exportBtn.addEventListener('click', exportDifficult);
 
-// ---- Quiz 逻辑 ----
 let quizList = [], quizIdx = 0;
 function openQuiz() {
     if (!currentWords.length) return;
@@ -930,7 +965,6 @@ quizPrev.addEventListener('click', ()=>{ if(quizList.length){ quizIdx = (quizIdx
 quizNext.addEventListener('click', ()=>{ if(quizList.length){ quizIdx = (quizIdx+1)%quizList.length; updateQuizDisplay(); } });
 quizOverlay.addEventListener('click', (e)=>{ if(e.target===quizOverlay) closeQuizFn(); });
 
-// ---- 导航 ----
 prevBtn.addEventListener('click', ()=>{
     if(!currentWords.length) return;
     currentIndex = (currentIndex-1+currentWords.length)%currentWords.length; refreshMainCard();
@@ -943,7 +977,6 @@ speakBtn.addEventListener('click', ()=>{
     if(currentWords[currentIndex]) speakWord(currentWords[currentIndex].en);
 });
 
-// ---- 初始化 ----
 renderMainCats();
 renderThemes();
 renderUnits();
